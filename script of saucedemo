@@ -1,0 +1,56 @@
+package practice_java_programs;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+public class saucedemo_fullPage {
+	public static void main(String[] args) throws InterruptedException, AWTException {
+		WebDriver   driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.saucedemo.com/");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("standard_user");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@data-test='password']")).sendKeys("secret_sauce");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@name='add-to-cart-sauce-labs-backpack']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@class='shopping_cart_link']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[text()='Checkout']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='first-name']")).sendKeys("Vignesh");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='last-name']")).sendKeys("tulasi babu");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='postal-code']")).sendKeys("560023");
+		Thread.sleep(2000);
+		Robot r = new Robot();	
+		r.keyPress(KeyEvent.VK_PAGE_DOWN);
+		r.keyRelease(KeyEvent.VK_PAGE_DOWN);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='continue']")).click();
+		Thread.sleep(2000);
+		for(int i=0;i<3;i++) {
+		r.keyPress(KeyEvent.VK_PAGE_DOWN);
+		r.keyRelease(KeyEvent.VK_PAGE_DOWN);
+		Thread.sleep(2000);}
+		driver.findElement(By.xpath("//button[@id='finish']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[text()='Open Menu']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[text()='Logout']")).click();
+		Thread.sleep(2000);
+		driver.quit();
+		
+
+		
+	}
+
+}
